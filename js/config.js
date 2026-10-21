@@ -30,7 +30,11 @@ const SITE_CONFIG = {
         split: "مرحبًا MG HOME، أود الاستفسار عن خدمة تركيب / صيانة مكيفات سبليت.",
         duct: "مرحبًا MG HOME، أود الاستفسار عن تمديد وتركيب دكت التكييف المركزي والمخفي.",
         standing: "مرحبًا MG HOME، أود الاستفسار عن خدمات المكيفات الدولابية والستائر الهوائية.",
-        washing: "مرحبًا MG HOME، أود الاستفسار عن صيانة الغسالات الأوتوماتيكية.",
+        copper: "مرحبًا MG HOME، أود الاستفسار عن خدمات تأسيس وتمديد مواسير النحاس (أمريكي / كوري / صيني).",
+        copperAmerican: "مرحبًا MG HOME، أود الاستفسار عن تأسيس وتمديد المواسير النحاس الأمريكي.",
+        copperKorean: "مرحبًا MG HOME، أود الاستفسار عن تأسيس وتمديد المواسير النحاس الكوري.",
+        copperChinese: "مرحبًا MG HOME، أود الاستفسار عن تأسيس وتمديد المواسير النحاس الصيني.",
+        washing: "مرحبًا MG HOME، أود الاستفسار عن صيانة الغسالات الأوتوماتيكية وغسالات الصحون.",
         fridge: "مرحبًا MG HOME، أود الاستفسار عن صيانة الثلاجات وأجهزة التبريد.",
         general: "مرحبًا MG HOME، أود الاستفسار عن خدمات الصيانة والفحص الميداني."
       },
@@ -39,7 +43,11 @@ const SITE_CONFIG = {
         split: "Hello MG HOME, I would like to inquire about Split AC installation and repair services.",
         duct: "Hello MG HOME, I would like to inquire about Central & Concealed Duct AC installation.",
         standing: "Hello MG HOME, I would like to inquire about Standing AC units and Air Curtains.",
-        washing: "Hello MG HOME, I would like to inquire about Automatic Washing Machine repairs.",
+        copper: "Hello MG HOME, I would like to inquire about copper piping installation services (American / Korean / Chinese).",
+        copperAmerican: "Hello MG HOME, I would like to inquire about American copper piping installation.",
+        copperKorean: "Hello MG HOME, I would like to inquire about Korean copper piping installation.",
+        copperChinese: "Hello MG HOME, I would like to inquire about Chinese copper piping installation.",
+        washing: "Hello MG HOME, I would like to inquire about Automatic Washing Machine and Dishwasher repairs.",
         fridge: "Hello MG HOME, I would like to inquire about Refrigerator and Cooling repair services.",
         general: "Hello MG HOME, I would like to inquire about field inspection and general maintenance."
       }
@@ -92,6 +100,45 @@ const SITE_CONFIG = {
       height: 1440
     },
     {
+      id: "copper-american-spec",
+      category: "copper",
+      categoryAr: "مواسير وتأسيس",
+      categoryEn: "Copper & Piping",
+      titleAr: "تمديد مواسير النحاس الأمريكي الأصلية",
+      titleEn: "Certified American Copper Pipe Installation",
+      descAr: "توريد وتمديد مواسير النحاس الأمريكي المعتمدة مع العزل الحراري التام لمنع التكثف وهدر التبريد.",
+      descEn: "Premium certified American copper piping with full thermal insulation to prevent condensation and loss.",
+      image: "assets/copper/american-copper-pipe.jpeg",
+      width: 1200,
+      height: 900
+    },
+    {
+      id: "copper-wall-roughin-1",
+      category: "copper",
+      categoryAr: "مواسير وتأسيس",
+      categoryEn: "Copper & Piping",
+      titleAr: "تأسيس وتمديد مسارات التكييف داخل الجدار",
+      titleEn: "In-Wall AC Copper Piping & Drain Chasing",
+      descAr: "تكسير هندسي وتمديد خطوط النحاس ومجاري التصريف داخل الجدار قبل اللياسة والتشطيب.",
+      descEn: "Precision masonry chasing, copper refrigerant line, and condensate drain installation before plastering.",
+      image: "assets/copper/copper-piping-wall-roughin-1.jpeg",
+      width: 1200,
+      height: 1600
+    },
+    {
+      id: "dishwasher-lg-service",
+      category: "washing",
+      categoryAr: "غسالات وصحون",
+      categoryEn: "Washers & Dishwashers",
+      titleAr: "فحص وصيانة غسالة صحون LG Direct Drive",
+      titleEn: "LG Direct Drive Dishwasher Diagnostics",
+      descAr: "فحص دورات الغسيل الذكية، رشاشات توزيع المياه، ومعالجة أعطال لوحة التحكم والتصريف.",
+      descEn: "Smart diagnostic inspection, dual spray arm testing, and drain cycle servicing.",
+      image: "assets/maintenance/dishwasher-lg-direct-drive.jpeg",
+      width: 1200,
+      height: 1200
+    },
+    {
       id: "ac-duct-technician",
       category: "duct",
       categoryAr: "دكت وتكييف مركزي",
@@ -101,6 +148,45 @@ const SITE_CONFIG = {
       descAr: "أعمال التقطيع واللحام والتثبيت العلوي لدكت التكييف في الموقع بواسطة فنيين متخصصين.",
       descEn: "On-site air duct fabrication, cutting, and overhead suspension by skilled technicians.",
       image: "assets/maintenance/ac-ductwork-fabrication-technician.jpeg",
+      width: 1200,
+      height: 1600
+    },
+    {
+      id: "copper-korean-coils",
+      category: "copper",
+      categoryAr: "مواسير وتأسيس",
+      categoryEn: "Copper & Piping",
+      titleAr: "لفات مواسير النحاس الكوري عالي التحمل",
+      titleEn: "High-Durability Korean Copper Pipe Coils",
+      descAr: "لفات نحاس كوري ممتازة لشبكات التبريد تتميز بالمرونة العالية وسهولة التشكيل ومقاومة الضغط.",
+      descEn: "Top-grade Korean copper coils offering superior bend flexibility and high pressure endurance.",
+      image: "assets/copper/korean-copper-coils.jpeg",
+      width: 1200,
+      height: 900
+    },
+    {
+      id: "dishwasher-interior",
+      category: "washing",
+      categoryAr: "غسالات وصحون",
+      categoryEn: "Washers & Dishwashers",
+      titleAr: "صيانة الحوض الداخلي ونظام تصريف غسالة الصحون",
+      titleEn: "Dishwasher Interior Basin & Pump Maintenance",
+      descAr: "معالجة انسداد مضخة التصريف، تنظيف الفلاتر، وتطهير دورة الغسيل بالكامل.",
+      descEn: "Clearing drainage pump blockages, cleaning fine filters, and full wash cycle servicing.",
+      image: "assets/maintenance/dishwasher-interior-service.jpeg",
+      width: 1200,
+      height: 1200
+    },
+    {
+      id: "copper-wall-roughin-2",
+      category: "copper",
+      categoryAr: "مواسير وتأسيس",
+      categoryEn: "Copper & Piping",
+      titleAr: "تمديد مسارات التكييف والكهرباء بالجدار",
+      titleEn: "Wall Conduit & AC Line Layout Setup",
+      descAr: "تجهيز علب الكهرباء وتمديد مواسير التبريد المعزولة والتصريف بمنسوب هندسي دقيق.",
+      descEn: "Careful alignment of insulated refrigeration tubing, drain line slope, and electrical rough-in.",
+      image: "assets/copper/copper-piping-wall-roughin-2.jpeg",
       width: 1200,
       height: 1600
     },
@@ -118,6 +204,19 @@ const SITE_CONFIG = {
       height: 1600
     },
     {
+      id: "copper-site-install",
+      category: "copper",
+      categoryAr: "مواسير وتأسيس",
+      categoryEn: "Copper & Piping",
+      titleAr: "تجهيز شبكات التكييف واختبار النيتروجين في الموقع",
+      titleEn: "Site AC Piping Network & Nitrogen Pressure Test",
+      descAr: "تمديد وتجهيز مسارات مواسير النحاس وعوازلها مع إجراء اختبار ضغط النيتروجين قبل إغلاق الأسقف.",
+      descEn: "Comprehensive AC line installation with nitrogen pressure testing to verify zero leakage.",
+      image: "assets/copper/copper-piping-site-installation.jpeg",
+      width: 1200,
+      height: 1600
+    },
+    {
       id: "ac-standing-unit",
       category: "standing",
       categoryAr: "دولابي وتجاري",
@@ -129,6 +228,19 @@ const SITE_CONFIG = {
       image: "assets/maintenance/ac-standing-commercial-unit.jpeg",
       width: 1440,
       height: 1440
+    },
+    {
+      id: "dishwasher-kitchen-line",
+      category: "washing",
+      categoryAr: "غسالات وصحون",
+      categoryEn: "Washers & Dishwashers",
+      titleAr: "فحص وتشغيل غسالة صحون Kitchen Line المدمجة",
+      titleEn: "Kitchen Line Built-in Dishwasher Inspection",
+      descAr: "معالجة أذرع الرش واللوحة الرقمية، فحص مانع التسريب والتوصيل الميكانيكي تحت المجلى.",
+      descEn: "Spray arm inspection, digital panel checkout, and under-counter leak prevention testing.",
+      image: "assets/maintenance/dishwasher-kitchen-line-opened.jpeg",
+      width: 1200,
+      height: 1200
     },
     {
       id: "washing-machine-drum",
@@ -155,6 +267,19 @@ const SITE_CONFIG = {
       image: "assets/maintenance/ac-ductwork-diffusers-spiral.jpeg",
       width: 1200,
       height: 1600
+    },
+    {
+      id: "copper-chinese-sizing",
+      category: "copper",
+      categoryAr: "مواسير وتأسيس",
+      categoryEn: "Copper & Piping",
+      titleAr: "قص وتشكيل مقاسات مواسير النحاس بالموقع",
+      titleEn: "Precision Copper Pipe Sizing & Flaring",
+      descAr: "قياس وتجهيز وصلات مواسير النحاس الصيني للأجهزة المختلفة بأدوات ثني وتوسيع دقيقة.",
+      descEn: "On-site precision measuring, bending, and flaring of copper tubing for AC connections.",
+      image: "assets/copper/chinese-copper-sizing.jpeg",
+      width: 1200,
+      height: 800
     },
     {
       id: "ac-outdoor-carrier",

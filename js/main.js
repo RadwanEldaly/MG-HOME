@@ -1,14 +1,15 @@
 /**
- * MG HOME - ملف الجافاسكريبت المطور (Theme, Bilingual, Gallery, Lightbox)
- * =========================================================================
+ * MG HOME - ملف الجافاسكريبت المطور (Theme, Bilingual, Gallery, Lightbox, Performance & Scroll Reveals)
+ * ====================================================================================================
  * 
  * يتحكم في:
  * 1. تبديل الوضع الداكن والفاتح (Dark/Light Mode) وحفظه في localStorage.
  * 2. تبديل اللغة (عربي / إنجليزي) وتحديث اتجاه الصفحة (RTL/LTR) وترجمة النصوص.
  * 3. تهيئة روابط التواصل (واتساب وانستغرام) بحسب اللغة النشطة.
- * 4. بناء وتصفية معرض الأعمال السابق ثنائي اللغة.
+ * 4. بناء وتصفية معرض الأعمال السابق ثنائي اللغة مع دعم أقسام النحاس والصحون.
  * 5. نافذة تكبير الصور (Lightbox Modal).
  * 6. قائمة الموبايل ونموذج الاستفسار السريع.
+ * 7. التمرير الفائق السرعة وتحريك العناصر بمراقب التقاطع (IntersectionObserver).
  */
 
 // حالة التطبيق العامة
@@ -28,6 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initNavigation();
   initQuickInquiryForm();
+  initScrollReveals();
+
+  // تفعيل تسلسل الحركة الأنيق
+  requestAnimationFrame(() => {
+    document.body.classList.add('is-loaded');
+  });
 });
 
 /* ==========================================================================
@@ -164,6 +171,7 @@ function updateFormSelectOptions(lang) {
     { value: 'split', text: dict.formOptSplit },
     { value: 'duct', text: dict.formOptDuct },
     { value: 'standing', text: dict.formOptStanding },
+    { value: 'copper', text: dict.formOptCopper || "تأسيس وتمديد مواسير النحاس" },
     { value: 'washing', text: dict.formOptWashing },
     { value: 'fridge', text: dict.formOptFridge },
     { value: 'other', text: dict.formOptOther }
@@ -364,7 +372,6 @@ function initLightbox() {
     if (e.key === 'Escape') {
       closeLightbox();
     } else if (e.key === 'ArrowRight') {
-      // إذا كان الاتجاه RTL، فالسهم الأيمن يعني السابق
       const dir = document.documentElement.dir === 'rtl' ? -1 : 1;
       navigateLightbox(dir);
     } else if (e.key === 'ArrowLeft') {
@@ -424,7 +431,7 @@ function updateLightboxContent() {
 }
 
 /* ==========================================================================
-   6. قائمة الهاتف والتنقل (Navigation)
+   6. قائمة الهاتف والتنقل (Navigation & High-Performance Header Scroll)
    ========================================================================== */
 function initNavigation() {
   const header = document.querySelector('.site-header');
@@ -483,24 +490,91 @@ function initNavigation() {
     drawerWaBtn.addEventListener('click', closeDrawer);
   }
 
-  // إغلاق القائمة بمفتاح Escape لتوافق معايير الوصول
+  // إغلاق القائمة بمفتاح Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('open')) {
       closeDrawer();
     }
   });
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 15) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+  // مراقبة التمرير لشريط الترويسة بدون أي استدعاء متكرر على كل بكسل
+  if ('IntersectionObserver' in window) {
+    const sentinel = document.createElement('div');
+    sentinel.id = 'scroll-sentinel';
+    sentinel.style.cssText = 'position: absolute; top: 0; left: 0; width: 1px; height: 18px; pointer-events: none; opacity: 0;';
+    document.body.prepend(sentinel);
+
+    const headerObserver = new IntersectionObserver((entries) => {
+      const isScrolled = !entries[0].isIntersecting;
+      if (header) {
+        header.classList.toggle('scrolled', isScrolled);
+      }
+    }, { root: null, threshold: 0 });
+
+    headerObserver.observe(sentinel);
+  } else {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (header) {
+            const isScrolled = window.scrollY > 18;
+            if (header.classList.contains('scrolled') !== isScrolled) {
+              header.classList.toggle('scrolled', isScrolled);
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // تمرير سلس نظيف عند الضغط على روابط الأقسام فقط
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   });
 }
 
 /* ==========================================================================
-   7. نموذج الاستفسار السريع المباشر لواتساب
+   7. مراقبة التمرير وظهور العناصر (Scroll-Triggered Reveals via IntersectionObserver)
+   ========================================================================== */
+function initScrollReveals() {
+  const elementsToReveal = document.querySelectorAll('.reveal-on-scroll, .stagger-group');
+  if (elementsToReveal.length === 0) return;
+
+  if (!('IntersectionObserver' in window)) {
+    elementsToReveal.forEach(el => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        // إلغاء المراقبة فور الظهور لضمان أداء فائق 60fps أثناء التمرير اللاحق
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.1
+  });
+
+  elementsToReveal.forEach(el => revealObserver.observe(el));
+}
+
+/* ==========================================================================
+   8. نموذج الاستفسار السريع المباشر لواتساب
    ========================================================================== */
 function initQuickInquiryForm() {
   const form = document.getElementById('quick-inquiry-form');

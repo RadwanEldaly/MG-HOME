@@ -1,0 +1,11 @@
+warning: in the working copy of 'css/style.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'js/config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'js/main.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'js/translations.js', LF will be replaced by CRLF the next time Git touches it
+ css/style.css      | 457 [32m+++++++++++++++++++++++++++++++++++++++++++++++++[m[31m----[m
+ index.html         | 244 [32m+++++++++++++++++++++++++[m[31m---[m
+ js/config.js       | 129 [32m++++++++++++++[m[31m-[m
+ js/main.js         | 100 [32m++++++++++[m[31m--[m
+ js/translations.js | 106 [32m+++++++++++[m[31m--[m
+ 5 files changed, 952 insertions(+), 84 deletions(-)

@@ -201,6 +201,17 @@ function initContactLinks() {
     el.setAttribute('rel', 'noopener noreferrer');
   });
 
+  document.querySelectorAll('[data-tel-link]').forEach(el => {
+    const telUrl = config.getTelUrl ? config.getTelUrl() : `tel:${localNumber}`;
+    el.href = telUrl;
+  });
+
+  document.querySelectorAll('[data-fb-link]').forEach(el => {
+    el.href = config.contact.facebookUrl || 'https://www.facebook.com/share/1533Pkhifuh/';
+    el.setAttribute('target', '_blank');
+    el.setAttribute('rel', 'noopener noreferrer');
+  });
+
   document.querySelectorAll('[data-ig-link]').forEach(el => {
     el.href = instagramUrl;
     el.setAttribute('target', '_blank');

@@ -87,10 +87,16 @@ const TRANSLATIONS = {
     // قسم التواصل
     contactBadge: "تواصل سريع",
     contactTitle: "نحن في خدمتك دائمًا",
-    contactDesc: "تواصل معنا مباشرة عبر واتساب لحجز موعد صيانة أو الاستفسار، أو تابع أحدث أعمالنا على انستغرام.",
+    contactDesc: "تواصل معنا مباشرة عبر الاتصال الهاتفي أو واتساب لحجز موعد صيانة أو الاستفسار، أو تابعنا على فيسبوك وانستغرام.",
     cardWaLabel: "المحادثة الفورية عبر واتساب",
     cardWaNote: "تواصل مباشر لتحديد الموعد واستقبال استفسارات الصيانة والأسعار.",
     cardWaBtn: "بدء محادثة واتساب",
+    cardTelLabel: "الاتصال الهاتفي المباشر",
+    cardTelNote: "متاحون للرد السريع على الاتصالات واستقبال استفساراتكم وحجز المواعيد.",
+    cardTelBtn: "إجراء اتصال هاتفي",
+    cardFbLabel: "صفحة فيسبوك الرسمية",
+    cardFbNote: "تواصل وتابع أحدث العروض وتفاصيل الخدمات عبر صفحتنا.",
+    cardFbBtn: "زيارة صفحة فيسبوك",
     cardIgLabel: "حساب انستغرام الرسمي",
     cardIgNote: "تابع يوميات الأعمال الميدانية وفيديوهات التركيبات أولاً بأول.",
     cardIgBtn: "زيارة حساب انستغرام",
@@ -120,6 +126,7 @@ const TRANSLATIONS = {
 
     // الشريط العائم للجوال
     mobileWa: "واتساب",
+    mobileCall: "اتصال",
     mobileIg: "انستغرام",
 
     // نافذة عرض الصور
@@ -214,10 +221,16 @@ const TRANSLATIONS = {
     // Contact Section
     contactBadge: "Quick Contact",
     contactTitle: "Always Ready to Assist You",
-    contactDesc: "Contact us directly via WhatsApp to book a service appointment or inquiry, or follow our latest updates on Instagram.",
+    contactDesc: "Contact us directly via phone call or WhatsApp for booking and inquiries, or follow us on Facebook and Instagram.",
     cardWaLabel: "Instant WhatsApp Chat",
     cardWaNote: "Direct chat to schedule a visit, ask questions, or obtain estimates.",
     cardWaBtn: "Start WhatsApp Chat",
+    cardTelLabel: "Direct Phone Call",
+    cardTelNote: "Available for quick response, inquiries, and booking appointments.",
+    cardTelBtn: "Call Now",
+    cardFbLabel: "Official Facebook Page",
+    cardFbNote: "Connect and follow our latest service updates on Facebook.",
+    cardFbBtn: "Visit Facebook Page",
     cardIgLabel: "Official Instagram Profile",
     cardIgNote: "Check out daily job highlights and installation videos.",
     cardIgBtn: "Visit Instagram Profile",
@@ -247,6 +260,7 @@ const TRANSLATIONS = {
 
     // Mobile Action Bar
     mobileWa: "WhatsApp",
+    mobileCall: "Call",
     mobileIg: "Instagram",
 
     // Lightbox

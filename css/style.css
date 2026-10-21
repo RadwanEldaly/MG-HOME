@@ -1267,6 +1267,16 @@ html[dir="ltr"] .lightbox-btn-close {
   color: var(--whatsapp);
 }
 
+.contact-card-icon.call {
+  background-color: rgba(2, 132, 199, 0.15);
+  color: var(--accent-cyan);
+}
+
+.contact-card-icon.fb {
+  background-color: rgba(24, 119, 242, 0.15);
+  color: #1877f2;
+}
+
 .contact-card-icon.ig {
   background-color: rgba(225, 48, 108, 0.15);
   color: var(--instagram);
@@ -1276,6 +1286,11 @@ html[dir="ltr"] .lightbox-btn-close {
   width: 28px;
   height: 28px;
   fill: currentColor;
+}
+
+.contact-card-icon.call svg {
+  fill: none;
+  stroke: currentColor;
 }
 
 .contact-card-content {
@@ -1325,6 +1340,26 @@ html[dir="ltr"] .lightbox-btn-close {
 
 .contact-link-btn.wa:hover {
   background-color: var(--whatsapp-hover);
+  color: #ffffff;
+}
+
+.contact-link-btn.call {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.contact-link-btn.call:hover {
+  background: var(--primary-light);
+  color: #ffffff;
+}
+
+.contact-link-btn.fb {
+  background-color: #1877f2;
+  color: #ffffff;
+}
+
+.contact-link-btn.fb:hover {
+  background-color: #166fe5;
   color: #ffffff;
 }
 
@@ -1549,6 +1584,16 @@ html[dir="ltr"] .footer-links a:hover {
   border-color: var(--whatsapp);
 }
 
+.footer-social-btn.fb:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+}
+
+.footer-social-btn.call:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
 .footer-social-btn.ig:hover {
   background: var(--instagram);
   border-color: var(--instagram);
@@ -1558,6 +1603,11 @@ html[dir="ltr"] .footer-links a:hover {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+.footer-social-btn.call svg {
+  fill: none;
+  stroke: currentColor;
 }
 
 .footer-bottom {
@@ -1592,7 +1642,7 @@ html[dir="ltr"] .footer-links a:hover {
 
 .mobile-action-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.7fr 1fr;
   gap: 0.75rem;
   align-items: center;
   max-width: 500px;
@@ -1616,6 +1666,35 @@ html[dir="ltr"] .footer-links a:hover {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+.btn-mobile-call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background-color: var(--bg-surface-alt);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.btn-mobile-call:hover,
+.btn-mobile-call:active {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.btn-mobile-call svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.2;
 }
 
 .btn-mobile-ig {
@@ -1817,6 +1896,35 @@ html[dir="ltr"] .footer-links a:hover {
     width: 20px;
     height: 20px;
     fill: currentColor;
+  }
+
+  .drawer-call-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.25rem;
+    background-color: var(--bg-surface-alt);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    font-size: 0.98rem;
+    transition: var(--transition);
+  }
+
+  .drawer-call-btn:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+  }
+
+  .drawer-call-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
   }
 
   /* ضبط قسم البطل على الشاشات المتوسطة */

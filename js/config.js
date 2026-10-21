@@ -19,6 +19,9 @@ const SITE_CONFIG = {
     // حساب انستغرام
     instagramUrl: "https://www.instagram.com/mg_home_air_conditioning/",
     instagramHandle: "@mg_home_air_conditioning",
+
+    // صفحة فيسبوك الرسمية
+    facebookUrl: "https://www.facebook.com/share/1533Pkhifuh/",
     
     // رسائل مخصصة حسب اللغة والخدمة
     serviceMessages: {
@@ -41,6 +44,16 @@ const SITE_CONFIG = {
         general: "Hello MG HOME, I would like to inquire about field inspection and general maintenance."
       }
     }
+  },
+
+  // دالة توليد رابط الاتصال الهاتفي المباشر
+  getTelUrl: function() {
+    const rawNumber = this.contact.localNumber.replace(/\D/g, "");
+    if (this.contact.isCountryCodeConfirmed && this.contact.countryCode) {
+      const cleanLocal = rawNumber.startsWith("0") ? rawNumber.substring(1) : rawNumber;
+      return `tel:+${this.contact.countryCode}${cleanLocal}`;
+    }
+    return `tel:${rawNumber}`;
   },
 
   // دالة توليد رابط واتساب مع مراعاة اللغة الحالية
